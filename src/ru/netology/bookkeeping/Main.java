@@ -15,8 +15,7 @@ public class Main {
         };
 
         for (Bill payment : payments) {
-            Bill bill = payment;
-             bill.payTaxes();
+            payment.payTaxes();
         }
     }
 }

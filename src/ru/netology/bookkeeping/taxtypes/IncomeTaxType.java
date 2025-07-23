@@ -1,8 +1,15 @@
 package ru.netology.bookkeeping.taxtypes;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class IncomeTaxType extends TaxType {
+
+    private static final BigDecimal TAX_RATE = BigDecimal.valueOf(0.13);
+
     @Override
-    public double calculateTaxFor(double amount) {
-        return amount * 0.13;
+    public BigDecimal calculateTaxFor(BigDecimal amount) {
+        return amount.multiply(TAX_RATE)
+                .setScale(2, RoundingMode.HALF_UP);
     }
 }
