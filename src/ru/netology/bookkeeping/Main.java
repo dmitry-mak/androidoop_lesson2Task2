@@ -47,10 +47,10 @@ public class Main {
 //        company.payTaxes();
 //        company2.payTaxes();
 
-        Deal sale1 = new Sale("молоко", 500);
+        Deal sale1 = new Sale("молоко", 5000);
         Deal sale2 = new Sale("пельмени", 10000);
-        Deal exp1 = new Expenditure("грузовик", 1000);
-        Deal exp2 = new Expenditure("упаковка", 300);
+        Deal exp1 = new Expenditure("грузовик", 2000);
+        Deal exp2 = new Expenditure("упаковка", 3000);
 
         Deal[] deals = {sale1, sale2, exp1, exp2};
 
