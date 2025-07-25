@@ -1,5 +1,6 @@
 package ru.netology.bookkeeping;
 
+import ru.netology.bookkeeping.deals.Deal;
 import ru.netology.bookkeeping.taxes.TaxSystem;
 
 public class Company {
@@ -8,7 +9,7 @@ public class Company {
     public int credit;
     public TaxSystem taxSystem;
 
-    public Company(String title) {
+    public Company(String title, TaxSystem taxSystem) {
         this.title = title;
         this.debit = 0;
         this.credit = 0;
@@ -33,5 +34,18 @@ public class Company {
         debit = 0;
         credit = 0;
 
+    }
+
+    public int applyDeals(Deal[] deals) {
+
+        for (Deal deal : deals) {
+            debit += deal.getDebitChange();
+            credit += deal.getCreditChange();
+            System.out.printf("Сделка: %s\n", deal.getComment());
+        }
+        int profitBeforeTaxes = debit - credit;
+
+        payTaxes();
+        return profitBeforeTaxes;
     }
 }
